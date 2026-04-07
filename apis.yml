@@ -9,9 +9,9 @@ image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jp
 tags:
   - ESB
   - Integration
+  - Middleware
   - OSGi
   - SOA
-  - Middleware
 created: '2026-03-16'
 modified: '2026-03-16'
 url: >-
@@ -24,9 +24,9 @@ apis:
       ServiceMix provides an OSGi-based ESB with JBI API support, integrating Camel for routing, CXF for web services, and ActiveMQ for messaging, with programmatic service deployment and management APIs.
     humanURL: https://servicemix.apache.org/docs/7.x/
     tags:
-      - OSGi
       - ESB
       - Integration
+      - OSGi
     properties:
       - type: Documentation
         url: https://servicemix.apache.org/docs/7.x/
