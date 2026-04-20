@@ -1,0 +1,9 @@
+{
+  "id": "500123",
+  "description": "example",
+  "status": "Started",
+  "uptime": "2026-04-19T10:00:00Z",
+  "exchangesTotal": 1234,
+  "exchangesFailed": 1234,
+  "meanProcessingTime": 1234
+}

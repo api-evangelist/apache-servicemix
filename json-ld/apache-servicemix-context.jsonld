@@ -1,0 +1,113 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "serv": "https://servicemix.apache.org/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "BundleList": "serv:BundleList",
+    "Bundle": "serv:Bundle",
+    "BundleStateRequest": "serv:BundleStateRequest",
+    "RouteList": "serv:RouteList",
+    "Route": "serv:Route",
+    "EndpointList": "serv:EndpointList",
+    "Endpoint": "serv:Endpoint",
+    "QueueList": "serv:QueueList",
+    "Queue": "serv:Queue",
+    "bundles": {
+      "@id": "serv:bundles",
+      "@container": "@set"
+    },
+    "total": {
+      "@id": "serv:total",
+      "@type": "xsd:integer"
+    },
+    "id": {
+      "@id": "serv:id",
+      "@type": "xsd:integer"
+    },
+    "name": {
+      "@id": "serv:name",
+      "@type": "schema:name"
+    },
+    "symbolicName": {
+      "@id": "serv:symbolicName",
+      "@type": "xsd:string"
+    },
+    "version": {
+      "@id": "serv:version",
+      "@type": "xsd:string"
+    },
+    "state": {
+      "@id": "serv:state",
+      "@type": "xsd:string"
+    },
+    "location": {
+      "@id": "serv:location",
+      "@type": "xsd:string"
+    },
+    "routes": {
+      "@id": "serv:routes",
+      "@container": "@set"
+    },
+    "description": {
+      "@id": "serv:description",
+      "@type": "schema:description"
+    },
+    "status": {
+      "@id": "serv:status",
+      "@type": "xsd:string"
+    },
+    "uptime": {
+      "@id": "serv:uptime",
+      "@type": "xsd:string"
+    },
+    "exchangesTotal": {
+      "@id": "serv:exchangesTotal",
+      "@type": "xsd:integer"
+    },
+    "exchangesFailed": {
+      "@id": "serv:exchangesFailed",
+      "@type": "xsd:integer"
+    },
+    "meanProcessingTime": {
+      "@id": "serv:meanProcessingTime",
+      "@type": "xsd:integer"
+    },
+    "endpoints": {
+      "@id": "serv:endpoints",
+      "@container": "@set"
+    },
+    "address": {
+      "@id": "serv:address",
+      "@type": "xsd:string"
+    },
+    "type": {
+      "@id": "serv:type",
+      "@type": "xsd:string"
+    },
+    "wsdl": {
+      "@id": "serv:wsdl",
+      "@type": "xsd:string"
+    },
+    "queues": {
+      "@id": "serv:queues",
+      "@container": "@set"
+    },
+    "pendingQueueSize": {
+      "@id": "serv:pendingQueueSize",
+      "@type": "xsd:integer"
+    },
+    "consumerCount": {
+      "@id": "serv:consumerCount",
+      "@type": "xsd:integer"
+    },
+    "enqueueCount": {
+      "@id": "serv:enqueueCount",
+      "@type": "xsd:integer"
+    },
+    "dequeueCount": {
+      "@id": "serv:dequeueCount",
+      "@type": "xsd:integer"
+    }
+  }
+}

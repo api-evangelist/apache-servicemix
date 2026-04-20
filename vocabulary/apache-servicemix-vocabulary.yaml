@@ -1,0 +1,53 @@
+name: Apache ServiceMix Vocabulary
+description: Unified taxonomy mapping ESB integration resources, actions, workflows, and personas for Apache ServiceMix.
+version: 1.0.0
+operational:
+  apis:
+    - name: Apache ServiceMix REST API
+      description: REST API for managing the ServiceMix ESB container
+  resources:
+    - name: Bundle
+      description: OSGi bundle deployed in the ServiceMix container
+    - name: Route
+      description: Apache Camel integration route
+    - name: Endpoint
+      description: Web service endpoint (SOAP, REST, JMS)
+    - name: Queue
+      description: ActiveMQ message queue
+    - name: Component
+      description: Camel or CXF component providing integration capabilities
+  actions:
+    - name: Deploy
+      description: Deploy bundles and routes to ServiceMix
+    - name: Start
+      description: Start routes and bundles
+    - name: Stop
+      description: Stop routes and bundles
+    - name: Monitor
+      description: Monitor route metrics and queue depths
+  authentication:
+    - name: Basic Auth
+      description: HTTP Basic authentication for Karaf admin access
+capability:
+  workflows:
+    - name: Integration Workflow
+      description: Deploy and manage ESB integration routes and endpoints
+  personas:
+    - name: Integration Developer
+      description: Developer building and deploying Camel/CXF integration routes
+    - name: Platform Engineer
+      description: Engineer managing ServiceMix ESB infrastructure
+  domains:
+    - name: Enterprise Integration
+      description: ESB-based enterprise application integration
+    - name: Messaging
+      description: JMS/ActiveMQ message routing and transformation
+  crossReference:
+    - name: Apache Camel
+      description: Core integration framework within ServiceMix
+    - name: Apache CXF
+      description: Web service framework for SOAP and REST endpoints
+    - name: Apache ActiveMQ
+      description: Message broker providing JMS messaging
+    - name: Apache Karaf
+      description: OSGi container that ServiceMix is built on

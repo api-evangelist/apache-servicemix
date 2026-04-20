@@ -1,0 +1,67 @@
+name: Apache ServiceMix Integration Workflow
+description: Workflow capability for managing ESB bundles, Camel routes, and message queues in Apache ServiceMix.
+version: 1.0.0-alpha1
+apis:
+  - name: Apache ServiceMix REST API
+    url: https://raw.githubusercontent.com/api-evangelist/apache-servicemix/refs/heads/main/apis.yml
+shared:
+  - url: capabilities/shared/servicemix-api.yaml
+workflow:
+  name: servicemix-workflow
+  description: Deploy and manage integration routes, web service endpoints, and message queues.
+  steps:
+    - name: list-bundles
+      description: List deployed OSGi bundles
+      api: Apache ServiceMix REST API
+      operation: listBundles
+    - name: list-routes
+      description: List Camel integration routes
+      api: Apache ServiceMix REST API
+      operation: listRoutes
+    - name: start-route
+      description: Start an integration route
+      api: Apache ServiceMix REST API
+      operation: startRoute
+    - name: list-queues
+      description: Monitor message queues
+      api: Apache ServiceMix REST API
+      operation: listQueues
+exposes:
+  - type: rest
+    port: 8181
+    paths:
+      - /bundles
+      - /bundles/{bundleId}
+      - /routes
+      - /routes/{routeId}
+      - /routes/{routeId}/start
+      - /routes/{routeId}/stop
+      - /endpoints
+      - /queues
+  - type: mcp
+    port: 9090
+    tools:
+      - name: list-bundles
+        description: List OSGi bundles
+        operation: listBundles
+      - name: get-bundle
+        description: Get bundle details
+        operation: getBundle
+      - name: update-bundle-state
+        description: Start or stop a bundle
+        operation: updateBundleState
+      - name: list-routes
+        description: List Camel routes
+        operation: listRoutes
+      - name: start-route
+        description: Start a Camel route
+        operation: startRoute
+      - name: stop-route
+        description: Stop a Camel route
+        operation: stopRoute
+      - name: list-endpoints
+        description: List web service endpoints
+        operation: listEndpoints
+      - name: list-queues
+        description: List ActiveMQ queues
+        operation: listQueues

@@ -1,0 +1,316 @@
+openapi: 3.0.3
+info:
+  title: Apache ServiceMix REST API
+  description: Apache ServiceMix is an open-source ESB (Enterprise Service Bus) and integration container built on Apache Karaf, Camel, CXF, and ActiveMQ. This API provides REST endpoints for managing bundles, routes, endpoints, and messaging.
+  version: 7.0.0
+  contact:
+    name: Apache ServiceMix
+    url: https://servicemix.apache.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+  - url: https://servicemix.example.com/api
+    description: Apache ServiceMix REST API
+
+paths:
+  /bundles:
+    get:
+      operationId: listBundles
+      summary: Apache ServiceMix List Bundles
+      description: List all OSGi bundles deployed in ServiceMix.
+      tags: [Bundles]
+      x-microcks-operation:
+        dispatcher: RANDOM
+      responses:
+        '200':
+          description: List of bundles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BundleList'
+  /bundles/{bundleId}:
+    get:
+      operationId: getBundle
+      summary: Apache ServiceMix Get Bundle
+      description: Get details of a specific OSGi bundle.
+      tags: [Bundles]
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: bundleId
+      parameters:
+        - name: bundleId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Bundle details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bundle'
+    put:
+      operationId: updateBundleState
+      summary: Apache ServiceMix Update Bundle State
+      description: Start, stop, or update the state of an OSGi bundle.
+      tags: [Bundles]
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: bundleId
+      parameters:
+        - name: bundleId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BundleStateRequest'
+      responses:
+        '200':
+          description: Bundle state updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bundle'
+  /routes:
+    get:
+      operationId: listRoutes
+      summary: Apache ServiceMix List Routes
+      description: List all Apache Camel routes deployed in ServiceMix.
+      tags: [Routes]
+      x-microcks-operation:
+        dispatcher: RANDOM
+      responses:
+        '200':
+          description: List of routes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteList'
+  /routes/{routeId}:
+    get:
+      operationId: getRoute
+      summary: Apache ServiceMix Get Route
+      description: Get details of a specific Camel route.
+      tags: [Routes]
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: routeId
+      parameters:
+        - name: routeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Route details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Route'
+  /routes/{routeId}/start:
+    post:
+      operationId: startRoute
+      summary: Apache ServiceMix Start Route
+      description: Start a stopped Camel route.
+      tags: [Routes]
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: routeId
+      parameters:
+        - name: routeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Route started
+  /routes/{routeId}/stop:
+    post:
+      operationId: stopRoute
+      summary: Apache ServiceMix Stop Route
+      description: Stop a running Camel route.
+      tags: [Routes]
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: routeId
+      parameters:
+        - name: routeId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Route stopped
+  /endpoints:
+    get:
+      operationId: listEndpoints
+      summary: Apache ServiceMix List Endpoints
+      description: List all web service endpoints registered in ServiceMix.
+      tags: [Endpoints]
+      x-microcks-operation:
+        dispatcher: RANDOM
+      responses:
+        '200':
+          description: List of endpoints
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EndpointList'
+  /queues:
+    get:
+      operationId: listQueues
+      summary: Apache ServiceMix List Queues
+      description: List all ActiveMQ message queues in ServiceMix.
+      tags: [Messaging]
+      x-microcks-operation:
+        dispatcher: RANDOM
+      responses:
+        '200':
+          description: List of queues
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueueList'
+
+components:
+  schemas:
+    BundleList:
+      type: object
+      description: List of OSGi bundles
+      properties:
+        bundles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bundle'
+        total:
+          type: integer
+    Bundle:
+      type: object
+      description: OSGi bundle in ServiceMix
+      properties:
+        id:
+          type: integer
+          description: Bundle identifier
+        name:
+          type: string
+          description: Bundle name
+        symbolicName:
+          type: string
+          description: Bundle symbolic name
+        version:
+          type: string
+          description: Bundle version
+        state:
+          type: string
+          enum: [INSTALLED, RESOLVED, STARTING, ACTIVE, STOPPING, UNINSTALLED]
+          description: Bundle state
+        location:
+          type: string
+          description: Bundle location URL
+    BundleStateRequest:
+      type: object
+      description: Request to update bundle state
+      properties:
+        state:
+          type: string
+          enum: [start, stop, restart, refresh, update]
+          description: Target state action
+    RouteList:
+      type: object
+      description: List of Camel routes
+      properties:
+        routes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Route'
+    Route:
+      type: object
+      description: Apache Camel route
+      properties:
+        id:
+          type: string
+          description: Route identifier
+        description:
+          type: string
+          description: Route description
+        status:
+          type: string
+          enum: [Started, Stopped, Suspended]
+          description: Route status
+        uptime:
+          type: string
+          description: Route uptime
+        exchangesTotal:
+          type: integer
+          format: int64
+          description: Total exchanges processed
+        exchangesFailed:
+          type: integer
+          format: int64
+          description: Failed exchanges count
+        meanProcessingTime:
+          type: integer
+          description: Mean processing time in milliseconds
+    EndpointList:
+      type: object
+      description: List of web service endpoints
+      properties:
+        endpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/Endpoint'
+    Endpoint:
+      type: object
+      description: Web service endpoint
+      properties:
+        name:
+          type: string
+          description: Endpoint name
+        address:
+          type: string
+          description: Endpoint URL address
+        type:
+          type: string
+          description: Endpoint type (SOAP, REST, JMS, etc.)
+        wsdl:
+          type: string
+          description: WSDL URL for SOAP endpoints
+    QueueList:
+      type: object
+      description: List of ActiveMQ queues
+      properties:
+        queues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Queue'
+    Queue:
+      type: object
+      description: ActiveMQ message queue
+      properties:
+        name:
+          type: string
+          description: Queue name
+        pendingQueueSize:
+          type: integer
+          description: Number of pending messages
+        consumerCount:
+          type: integer
+          description: Number of consumers
+        enqueueCount:
+          type: integer
+          format: int64
+          description: Total enqueued messages
+        dequeueCount:
+          type: integer
+          format: int64
+          description: Total dequeued messages

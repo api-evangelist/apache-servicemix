@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-servicemix/refs/heads/main/json-structure/apache-servicemix-bundle-list-structure.json",
+  "description": "List of OSGi bundles",
+  "type": "object",
+  "properties": {
+    "bundles": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Bundle"
+      }
+    },
+    "total": {
+      "type": "int32"
+    }
+  },
+  "name": "BundleList"
+}

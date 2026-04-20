@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-servicemix/refs/heads/main/json-schema/apache-servicemix-route-list-schema.json",
+  "title": "RouteList",
+  "description": "List of Camel routes",
+  "type": "object",
+  "properties": {
+    "routes": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Route"
+      }
+    }
+  }
+}

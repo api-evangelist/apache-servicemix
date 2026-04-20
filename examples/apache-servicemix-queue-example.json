@@ -1,0 +1,7 @@
+{
+  "name": "example-name",
+  "pendingQueueSize": 1234,
+  "consumerCount": 1234,
+  "enqueueCount": 1234,
+  "dequeueCount": 1234
+}

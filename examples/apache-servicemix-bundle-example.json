@@ -1,0 +1,8 @@
+{
+  "id": 1234,
+  "name": "example-name",
+  "symbolicName": "example-name",
+  "version": "example",
+  "state": "INSTALLED",
+  "location": "example"
+}

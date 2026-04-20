@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-servicemix/refs/heads/main/json-structure/apache-servicemix-endpoint-list-structure.json",
+  "description": "List of web service endpoints",
+  "type": "object",
+  "properties": {
+    "endpoints": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Endpoint"
+      }
+    }
+  },
+  "name": "EndpointList"
+}

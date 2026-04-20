@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-servicemix/refs/heads/main/json-schema/apache-servicemix-queue-list-schema.json",
+  "title": "QueueList",
+  "description": "List of ActiveMQ queues",
+  "type": "object",
+  "properties": {
+    "queues": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Queue"
+      }
+    }
+  }
+}

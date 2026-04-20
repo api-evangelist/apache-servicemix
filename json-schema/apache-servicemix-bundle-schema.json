@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-servicemix/refs/heads/main/json-schema/apache-servicemix-bundle-schema.json",
+  "title": "Bundle",
+  "description": "OSGi bundle in ServiceMix",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Bundle identifier"
+    },
+    "name": {
+      "type": "string",
+      "description": "Bundle name"
+    },
+    "symbolicName": {
+      "type": "string",
+      "description": "Bundle symbolic name"
+    },
+    "version": {
+      "type": "string",
+      "description": "Bundle version"
+    },
+    "state": {
+      "type": "string",
+      "enum": [
+        "INSTALLED",
+        "RESOLVED",
+        "STARTING",
+        "ACTIVE",
+        "STOPPING",
+        "UNINSTALLED"
+      ],
+      "description": "Bundle state"
+    },
+    "location": {
+      "type": "string",
+      "description": "Bundle location URL"
+    }
+  }
+}

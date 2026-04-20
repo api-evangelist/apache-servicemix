@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-servicemix/refs/heads/main/json-structure/apache-servicemix-queue-structure.json",
+  "description": "ActiveMQ message queue",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Queue name"
+    },
+    "pendingQueueSize": {
+      "type": "int32",
+      "description": "Number of pending messages"
+    },
+    "consumerCount": {
+      "type": "int32",
+      "description": "Number of consumers"
+    },
+    "enqueueCount": {
+      "type": "int64",
+      "description": "Total enqueued messages"
+    },
+    "dequeueCount": {
+      "type": "int64",
+      "description": "Total dequeued messages"
+    }
+  },
+  "name": "Queue"
+}

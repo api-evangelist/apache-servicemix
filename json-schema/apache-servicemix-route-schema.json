@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-servicemix/refs/heads/main/json-schema/apache-servicemix-route-schema.json",
+  "title": "Route",
+  "description": "Apache Camel route",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Route identifier"
+    },
+    "description": {
+      "type": "string",
+      "description": "Route description"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "Started",
+        "Stopped",
+        "Suspended"
+      ],
+      "description": "Route status"
+    },
+    "uptime": {
+      "type": "string",
+      "description": "Route uptime"
+    },
+    "exchangesTotal": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Total exchanges processed"
+    },
+    "exchangesFailed": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Failed exchanges count"
+    },
+    "meanProcessingTime": {
+      "type": "integer",
+      "description": "Mean processing time in milliseconds"
+    }
+  }
+}

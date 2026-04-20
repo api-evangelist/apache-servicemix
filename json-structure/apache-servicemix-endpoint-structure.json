@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-servicemix/refs/heads/main/json-structure/apache-servicemix-endpoint-structure.json",
+  "description": "Web service endpoint",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Endpoint name"
+    },
+    "address": {
+      "type": "string",
+      "description": "Endpoint URL address"
+    },
+    "type": {
+      "type": "string",
+      "description": "Endpoint type (SOAP, REST, JMS, etc.)"
+    },
+    "wsdl": {
+      "type": "string",
+      "description": "WSDL URL for SOAP endpoints"
+    }
+  },
+  "name": "Endpoint"
+}

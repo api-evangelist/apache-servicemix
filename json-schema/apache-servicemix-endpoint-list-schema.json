@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-servicemix/refs/heads/main/json-schema/apache-servicemix-endpoint-list-schema.json",
+  "title": "EndpointList",
+  "description": "List of web service endpoints",
+  "type": "object",
+  "properties": {
+    "endpoints": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/Endpoint"
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/apache-servicemix/refs/heads/main/json-structure/apache-servicemix-bundle-state-request-structure.json",
+  "description": "Request to update bundle state",
+  "type": "object",
+  "properties": {
+    "state": {
+      "type": "string",
+      "enum": [
+        "start",
+        "stop",
+        "restart",
+        "refresh",
+        "update"
+      ],
+      "description": "Target state action"
+    }
+  },
+  "name": "BundleStateRequest"
+}
