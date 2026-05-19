@@ -1,0 +1,190 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Apache ServiceMix REST API — Routes
+  description: 'Apache ServiceMix REST API — Routes. 4 operations. Lead operation: Apache ServiceMix List Routes. Self-contained
+    Naftiko capability covering one Apache Servicemix business surface.'
+  tags:
+  - Apache Servicemix
+  - Routes
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    APACHE_SERVICEMIX_API_KEY: APACHE_SERVICEMIX_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: rest-routes
+    baseUri: https://servicemix.example.com/api
+    description: Apache ServiceMix REST API — Routes business capability. Self-contained, no shared references.
+    resources:
+    - name: routes
+      path: /routes
+      operations:
+      - name: listroutes
+        method: GET
+        description: Apache ServiceMix List Routes
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: routes-routeId
+      path: /routes/{routeId}
+      operations:
+      - name: getroute
+        method: GET
+        description: Apache ServiceMix Get Route
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: routeId
+          in: path
+          type: string
+          required: true
+    - name: routes-routeId-start
+      path: /routes/{routeId}/start
+      operations:
+      - name: startroute
+        method: POST
+        description: Apache ServiceMix Start Route
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: routeId
+          in: path
+          type: string
+          required: true
+    - name: routes-routeId-stop
+      path: /routes/{routeId}/stop
+      operations:
+      - name: stoproute
+        method: POST
+        description: Apache ServiceMix Stop Route
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: routeId
+          in: path
+          type: string
+          required: true
+  exposes:
+  - type: rest
+    namespace: rest-routes-rest
+    port: 8080
+    description: REST adapter for Apache ServiceMix REST API — Routes. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/routes
+      name: routes
+      description: REST surface for routes.
+      operations:
+      - method: GET
+        name: listroutes
+        description: Apache ServiceMix List Routes
+        call: rest-routes.listroutes
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routes/{routeid}
+      name: routes-routeid
+      description: REST surface for routes-routeId.
+      operations:
+      - method: GET
+        name: getroute
+        description: Apache ServiceMix Get Route
+        call: rest-routes.getroute
+        with:
+          routeId: rest.routeId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routes/{routeid}/start
+      name: routes-routeid-start
+      description: REST surface for routes-routeId-start.
+      operations:
+      - method: POST
+        name: startroute
+        description: Apache ServiceMix Start Route
+        call: rest-routes.startroute
+        with:
+          routeId: rest.routeId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/routes/{routeid}/stop
+      name: routes-routeid-stop
+      description: REST surface for routes-routeId-stop.
+      operations:
+      - method: POST
+        name: stoproute
+        description: Apache ServiceMix Stop Route
+        call: rest-routes.stoproute
+        with:
+          routeId: rest.routeId
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: rest-routes-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Apache ServiceMix REST API — Routes. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: apache-servicemix-list-routes
+      description: Apache ServiceMix List Routes
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-routes.listroutes
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-servicemix-get-route
+      description: Apache ServiceMix Get Route
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: rest-routes.getroute
+      with:
+        routeId: tools.routeId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-servicemix-start-route
+      description: Apache ServiceMix Start Route
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-routes.startroute
+      with:
+        routeId: tools.routeId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: apache-servicemix-stop-route
+      description: Apache ServiceMix Stop Route
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: rest-routes.stoproute
+      with:
+        routeId: tools.routeId
+      outputParameters:
+      - type: object
+        mapping: $.

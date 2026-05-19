@@ -1,8 +1,7 @@
 aid: apache-servicemix
 name: Apache ServiceMix
-description: >-
-  Apache ServiceMix is a flexible, open-source integration container that unifies the features and functionality of Apache ActiveMQ, Camel, CXF, and Karaf into a powerful runtime for building enterprise
-  integration solutions.
+description: Apache ServiceMix is a flexible, open-source integration container that unifies the features and functionality
+  of Apache ActiveMQ, Camel, CXF, and Karaf into a powerful runtime for building enterprise integration solutions.
 type: Index
 position: Consumer
 access: 3rd-Party
@@ -16,15 +15,14 @@ tags:
 - Apache
 - Open Source
 created: '2026-03-16'
-modified: '2026-04-19'
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/apache-servicemix/refs/heads/main/apis.yml
+modified: '2026-05-19'
+url: https://raw.githubusercontent.com/api-evangelist/apache-servicemix/refs/heads/main/apis.yml
 specificationVersion: '0.19'
 apis:
 - aid: apache-servicemix:apache-servicemix
   name: Apache ServiceMix
-  description: >-
-    ServiceMix provides an OSGi-based ESB with JBI API support, integrating Camel for routing, CXF for web services, and ActiveMQ for messaging, with programmatic service deployment and management APIs.
+  description: ServiceMix provides an OSGi-based ESB with JBI API support, integrating Camel for routing, CXF for web services,
+    and ActiveMQ for messaging, with programmatic service deployment and management APIs.
   humanURL: https://servicemix.apache.org/docs/7.x/
   tags:
   - Enterprise Integration
@@ -39,6 +37,14 @@ apis:
     url: https://servicemix.apache.org/
   - type: OpenAPI
     url: openapi/apache-servicemix-rest-api.yaml
+  - type: NaftikoCapability
+    url: capabilities/rest-bundles.yaml
+  - type: NaftikoCapability
+    url: capabilities/rest-endpoints.yaml
+  - type: NaftikoCapability
+    url: capabilities/rest-messaging.yaml
+  - type: NaftikoCapability
+    url: capabilities/rest-routes.yaml
 maintainers:
 - FN: Kin Lane
   email: info@apievangelist.com
@@ -51,8 +57,6 @@ common:
   url: rules/apache-servicemix-spectral-rules.yml
 - type: Vocabulary
   url: vocabulary/apache-servicemix-vocabulary.yaml
-- type: NaftikoCapability
-  url: capabilities/servicemix-workflow.yaml
 - type: JSONLD
   url: json-ld/apache-servicemix-context.jsonld
 - type: Features
