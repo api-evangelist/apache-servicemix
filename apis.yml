@@ -37,13 +37,13 @@ apis:
     url: https://servicemix.apache.org/
   - type: OpenAPI
     url: openapi/apache-servicemix-rest-api.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-bundles.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-endpoints.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-messaging.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/rest-routes.yaml
 maintainers:
 - FN: Kin Lane
