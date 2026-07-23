@@ -1,0 +1,59 @@
+openapi: 3.0.3
+info:
+  title: Apache ServiceMix REST Bundles Endpoints API
+  description: Apache ServiceMix is an open-source ESB (Enterprise Service Bus) and integration container built on Apache Karaf, Camel, CXF, and ActiveMQ. This API provides REST endpoints for managing bundles, routes, endpoints, and messaging.
+  version: 7.0.0
+  contact:
+    name: Apache ServiceMix
+    url: https://servicemix.apache.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://servicemix.example.com/api
+  description: Apache ServiceMix REST API
+tags:
+- name: Endpoints
+paths:
+  /endpoints:
+    get:
+      operationId: listEndpoints
+      summary: Apache ServiceMix List Endpoints
+      description: List all web service endpoints registered in ServiceMix.
+      tags:
+      - Endpoints
+      x-microcks-operation:
+        dispatcher: RANDOM
+      responses:
+        '200':
+          description: List of endpoints
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/EndpointList'
+components:
+  schemas:
+    EndpointList:
+      type: object
+      description: List of web service endpoints
+      properties:
+        endpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/Endpoint'
+    Endpoint:
+      type: object
+      description: Web service endpoint
+      properties:
+        name:
+          type: string
+          description: Endpoint name
+        address:
+          type: string
+          description: Endpoint URL address
+        type:
+          type: string
+          description: Endpoint type (SOAP, REST, JMS, etc.)
+        wsdl:
+          type: string
+          description: WSDL URL for SOAP endpoints

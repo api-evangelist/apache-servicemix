@@ -1,0 +1,135 @@
+openapi: 3.0.3
+info:
+  title: Apache ServiceMix REST Bundles Routes API
+  description: Apache ServiceMix is an open-source ESB (Enterprise Service Bus) and integration container built on Apache Karaf, Camel, CXF, and ActiveMQ. This API provides REST endpoints for managing bundles, routes, endpoints, and messaging.
+  version: 7.0.0
+  contact:
+    name: Apache ServiceMix
+    url: https://servicemix.apache.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://servicemix.example.com/api
+  description: Apache ServiceMix REST API
+tags:
+- name: Routes
+paths:
+  /routes:
+    get:
+      operationId: listRoutes
+      summary: Apache ServiceMix List Routes
+      description: List all Apache Camel routes deployed in ServiceMix.
+      tags:
+      - Routes
+      x-microcks-operation:
+        dispatcher: RANDOM
+      responses:
+        '200':
+          description: List of routes
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RouteList'
+  /routes/{routeId}:
+    get:
+      operationId: getRoute
+      summary: Apache ServiceMix Get Route
+      description: Get details of a specific Camel route.
+      tags:
+      - Routes
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: routeId
+      parameters:
+      - name: routeId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Route details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Route'
+  /routes/{routeId}/start:
+    post:
+      operationId: startRoute
+      summary: Apache ServiceMix Start Route
+      description: Start a stopped Camel route.
+      tags:
+      - Routes
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: routeId
+      parameters:
+      - name: routeId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Route started
+  /routes/{routeId}/stop:
+    post:
+      operationId: stopRoute
+      summary: Apache ServiceMix Stop Route
+      description: Stop a running Camel route.
+      tags:
+      - Routes
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: routeId
+      parameters:
+      - name: routeId
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Route stopped
+components:
+  schemas:
+    RouteList:
+      type: object
+      description: List of Camel routes
+      properties:
+        routes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Route'
+    Route:
+      type: object
+      description: Apache Camel route
+      properties:
+        id:
+          type: string
+          description: Route identifier
+        description:
+          type: string
+          description: Route description
+        status:
+          type: string
+          enum:
+          - Started
+          - Stopped
+          - Suspended
+          description: Route status
+        uptime:
+          type: string
+          description: Route uptime
+        exchangesTotal:
+          type: integer
+          format: int64
+          description: Total exchanges processed
+        exchangesFailed:
+          type: integer
+          format: int64
+          description: Failed exchanges count
+        meanProcessingTime:
+          type: integer
+          description: Mean processing time in milliseconds

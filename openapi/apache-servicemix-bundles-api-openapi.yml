@@ -1,0 +1,138 @@
+openapi: 3.0.3
+info:
+  title: Apache ServiceMix REST Bundles API
+  description: Apache ServiceMix is an open-source ESB (Enterprise Service Bus) and integration container built on Apache Karaf, Camel, CXF, and ActiveMQ. This API provides REST endpoints for managing bundles, routes, endpoints, and messaging.
+  version: 7.0.0
+  contact:
+    name: Apache ServiceMix
+    url: https://servicemix.apache.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://servicemix.example.com/api
+  description: Apache ServiceMix REST API
+tags:
+- name: Bundles
+paths:
+  /bundles:
+    get:
+      operationId: listBundles
+      summary: Apache ServiceMix List Bundles
+      description: List all OSGi bundles deployed in ServiceMix.
+      tags:
+      - Bundles
+      x-microcks-operation:
+        dispatcher: RANDOM
+      responses:
+        '200':
+          description: List of bundles
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BundleList'
+  /bundles/{bundleId}:
+    get:
+      operationId: getBundle
+      summary: Apache ServiceMix Get Bundle
+      description: Get details of a specific OSGi bundle.
+      tags:
+      - Bundles
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: bundleId
+      parameters:
+      - name: bundleId
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Bundle details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bundle'
+    put:
+      operationId: updateBundleState
+      summary: Apache ServiceMix Update Bundle State
+      description: Start, stop, or update the state of an OSGi bundle.
+      tags:
+      - Bundles
+      x-microcks-operation:
+        dispatcher: URI_PARTS
+        dispatcherRules: bundleId
+      parameters:
+      - name: bundleId
+        in: path
+        required: true
+        schema:
+          type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/BundleStateRequest'
+      responses:
+        '200':
+          description: Bundle state updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Bundle'
+components:
+  schemas:
+    Bundle:
+      type: object
+      description: OSGi bundle in ServiceMix
+      properties:
+        id:
+          type: integer
+          description: Bundle identifier
+        name:
+          type: string
+          description: Bundle name
+        symbolicName:
+          type: string
+          description: Bundle symbolic name
+        version:
+          type: string
+          description: Bundle version
+        state:
+          type: string
+          enum:
+          - INSTALLED
+          - RESOLVED
+          - STARTING
+          - ACTIVE
+          - STOPPING
+          - UNINSTALLED
+          description: Bundle state
+        location:
+          type: string
+          description: Bundle location URL
+    BundleList:
+      type: object
+      description: List of OSGi bundles
+      properties:
+        bundles:
+          type: array
+          items:
+            $ref: '#/components/schemas/Bundle'
+        total:
+          type: integer
+    BundleStateRequest:
+      type: object
+      description: Request to update bundle state
+      properties:
+        state:
+          type: string
+          enum:
+          - start
+          - stop
+          - restart
+          - refresh
+          - update
+          description: Target state action
