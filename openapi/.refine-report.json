@@ -1,0 +1,20 @@
+{
+  "provider": "apache-servicemix",
+  "sources": [
+    "apache-servicemix-bundles-api-openapi.yml",
+    "apache-servicemix-endpoints-api-openapi.yml",
+    "apache-servicemix-messaging-api-openapi.yml",
+    "apache-servicemix-routes-api-openapi.yml"
+  ],
+  "outputs": [
+    "apache-servicemix-bundles-api-openapi.yml",
+    "apache-servicemix-endpoints-api-openapi.yml",
+    "apache-servicemix-messaging-api-openapi.yml",
+    "apache-servicemix-routes-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
