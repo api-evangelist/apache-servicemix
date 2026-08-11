@@ -44,14 +44,6 @@ apis:
     url: https://servicemix.apache.org/docs/7.x/
   - type: Documentation
     url: https://servicemix.apache.org/
-  - type: X-NaftikoCapability
-    url: capabilities/rest-bundles.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-endpoints.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-messaging.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-routes.yaml
 - aid: apache-servicemix:apache-servicemix-endpoints-api
   name: Apache ServiceMix Endpoints API
   description: The Endpoints API from Apache ServiceMix — 1 operation(s) for endpoints.
@@ -65,14 +57,6 @@ apis:
     url: https://servicemix.apache.org/docs/7.x/
   - type: Documentation
     url: https://servicemix.apache.org/
-  - type: X-NaftikoCapability
-    url: capabilities/rest-bundles.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-endpoints.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-messaging.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-routes.yaml
 - aid: apache-servicemix:apache-servicemix-messaging-api
   name: Apache ServiceMix Messaging API
   description: The Messaging API from Apache ServiceMix — 1 operation(s) for messaging.
@@ -86,14 +70,6 @@ apis:
     url: https://servicemix.apache.org/docs/7.x/
   - type: Documentation
     url: https://servicemix.apache.org/
-  - type: X-NaftikoCapability
-    url: capabilities/rest-bundles.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-endpoints.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-messaging.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-routes.yaml
 - aid: apache-servicemix:apache-servicemix-routes-api
   name: Apache ServiceMix Routes API
   description: The Routes API from Apache ServiceMix — 4 operation(s) for routes.
@@ -107,14 +83,6 @@ apis:
     url: https://servicemix.apache.org/docs/7.x/
   - type: Documentation
     url: https://servicemix.apache.org/
-  - type: X-NaftikoCapability
-    url: capabilities/rest-bundles.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-endpoints.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-messaging.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/rest-routes.yaml
 maintainers:
 - FN: Kin Lane
   email: info@apievangelist.com
