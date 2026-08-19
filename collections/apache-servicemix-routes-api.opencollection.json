@@ -1,0 +1,83 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache ServiceMix REST Bundles Routes API",
+    "version": "7.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Routes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache ServiceMix List Routes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://servicemix.example.com/api/routes"
+          },
+          "docs": "List all Apache Camel routes deployed in ServiceMix."
+        },
+        {
+          "info": {
+            "name": "Apache ServiceMix Get Route",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://servicemix.example.com/api/routes/:routeId",
+            "params": [
+              {
+                "name": "routeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get details of a specific Camel route."
+        },
+        {
+          "info": {
+            "name": "Apache ServiceMix Start Route",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://servicemix.example.com/api/routes/:routeId/start",
+            "params": [
+              {
+                "name": "routeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Start a stopped Camel route."
+        },
+        {
+          "info": {
+            "name": "Apache ServiceMix Stop Route",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://servicemix.example.com/api/routes/:routeId/stop",
+            "params": [
+              {
+                "name": "routeId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Stop a running Camel route."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

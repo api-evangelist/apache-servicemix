@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache ServiceMix REST Bundles API",
+    "version": "7.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Bundles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache ServiceMix List Bundles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://servicemix.example.com/api/bundles"
+          },
+          "docs": "List all OSGi bundles deployed in ServiceMix."
+        },
+        {
+          "info": {
+            "name": "Apache ServiceMix Get Bundle",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://servicemix.example.com/api/bundles/:bundleId",
+            "params": [
+              {
+                "name": "bundleId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get details of a specific OSGi bundle."
+        },
+        {
+          "info": {
+            "name": "Apache ServiceMix Update Bundle State",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://servicemix.example.com/api/bundles/:bundleId",
+            "params": [
+              {
+                "name": "bundleId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Start, stop, or update the state of an OSGi bundle."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

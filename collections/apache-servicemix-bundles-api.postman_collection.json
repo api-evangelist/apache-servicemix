@@ -1,0 +1,299 @@
+{
+  "item": [
+    {
+      "id": "6d363e00-90eb-4ecb-8858-7dbd9318089a",
+      "name": "Bundles",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "66b4a895-3859-43d4-91fd-706c92e2a7d5",
+          "name": "Apache ServiceMix List Bundles",
+          "request": {
+            "name": "Apache ServiceMix List Bundles",
+            "description": {
+              "content": "List all OSGi bundles deployed in ServiceMix.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5523e5f4-36f9-46b5-95c4-3219fb2abdc6",
+              "name": "List of bundles",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"bundles\": [\n    {\n      \"id\": 726,\n      \"name\": \"string\",\n      \"symbolicName\": \"string\",\n      \"version\": \"string\",\n      \"state\": \"STARTING\",\n      \"location\": \"string\"\n    },\n    {\n      \"id\": 5302,\n      \"name\": \"string\",\n      \"symbolicName\": \"string\",\n      \"version\": \"string\",\n      \"state\": \"STOPPING\",\n      \"location\": \"string\"\n    }\n  ],\n  \"total\": 8344\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5c95e34e-c181-4e5e-a952-b052f21e4cf6",
+          "name": "Apache ServiceMix Get Bundle",
+          "request": {
+            "name": "Apache ServiceMix Get Bundle",
+            "description": {
+              "content": "Get details of a specific OSGi bundle.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":bundleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "bundleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "53d2f02f-59e7-4726-861c-2efe8a339c4d",
+              "name": "Bundle details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bundleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3430,\n  \"name\": \"string\",\n  \"symbolicName\": \"string\",\n  \"version\": \"string\",\n  \"state\": \"UNINSTALLED\",\n  \"location\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1efba88d-46cf-41f4-b139-d1e2dc45f504",
+          "name": "Apache ServiceMix Update Bundle State",
+          "request": {
+            "name": "Apache ServiceMix Update Bundle State",
+            "description": {
+              "content": "Start, stop, or update the state of an OSGi bundle.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "bundles",
+                ":bundleId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "bundleId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PUT",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"state\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "dbf18fcf-90ce-4b37-a294-417d20f543c2",
+              "name": "Bundle state updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "bundles",
+                    ":bundleId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "bundleId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PUT",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"state\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 3430,\n  \"name\": \"string\",\n  \"symbolicName\": \"string\",\n  \"version\": \"string\",\n  \"state\": \"UNINSTALLED\",\n  \"location\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://servicemix.example.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "29476f6f-ba45-4aed-a03c-eb4419fbf6d5",
+    "name": "Apache ServiceMix REST Bundles API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Apache ServiceMix is an open-source ESB (Enterprise Service Bus) and integration container built on Apache Karaf, Camel, CXF, and ActiveMQ. This API provides REST endpoints for managing bundles, routes, endpoints, and messaging.\n\nContact Support:\n Name: Apache ServiceMix",
+      "type": "text/plain"
+    }
+  }
+}

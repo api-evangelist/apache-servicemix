@@ -1,0 +1,29 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Apache ServiceMix REST Bundles Messaging API",
+    "version": "7.0.0"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Messaging",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apache ServiceMix List Queues",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://servicemix.example.com/api/queues"
+          },
+          "docs": "List all ActiveMQ message queues in ServiceMix."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

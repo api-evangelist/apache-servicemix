@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "02964ef9-0bb2-4c0f-9fd2-c56d30555733",
+      "name": "Endpoints",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "83af33c0-b291-4723-b715-02acf7969e9f",
+          "name": "Apache ServiceMix List Endpoints",
+          "request": {
+            "name": "Apache ServiceMix List Endpoints",
+            "description": {
+              "content": "List all web service endpoints registered in ServiceMix.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "endpoints"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4b45bcbf-2993-42e6-bb31-1aca9fdf234c",
+              "name": "List of endpoints",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "endpoints"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"endpoints\": [\n    {\n      \"name\": \"string\",\n      \"address\": \"string\",\n      \"type\": \"string\",\n      \"wsdl\": \"string\"\n    },\n    {\n      \"name\": \"string\",\n      \"address\": \"string\",\n      \"type\": \"string\",\n      \"wsdl\": \"string\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://servicemix.example.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "f5db2318-be53-4f5a-a19e-d18468210597",
+    "name": "Apache ServiceMix REST Bundles Endpoints API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Apache ServiceMix is an open-source ESB (Enterprise Service Bus) and integration container built on Apache Karaf, Camel, CXF, and ActiveMQ. This API provides REST endpoints for managing bundles, routes, endpoints, and messaging.\n\nContact Support:\n Name: Apache ServiceMix",
+      "type": "text/plain"
+    }
+  }
+}

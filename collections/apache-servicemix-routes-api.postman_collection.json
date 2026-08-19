@@ -1,0 +1,346 @@
+{
+  "item": [
+    {
+      "id": "045c0a63-6cd2-4a58-8d4a-6d694be694bd",
+      "name": "Routes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2cb503f5-52c8-432c-a62f-c499cef9df1e",
+          "name": "Apache ServiceMix List Routes",
+          "request": {
+            "name": "Apache ServiceMix List Routes",
+            "description": {
+              "content": "List all Apache Camel routes deployed in ServiceMix.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a0783e79-37a8-4c1b-8b4a-38404052915d",
+              "name": "List of routes",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"routes\": [\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"Stopped\",\n      \"uptime\": \"string\",\n      \"exchangesTotal\": 9699,\n      \"exchangesFailed\": 9232,\n      \"meanProcessingTime\": 3608\n    },\n    {\n      \"id\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"Stopped\",\n      \"uptime\": \"string\",\n      \"exchangesTotal\": 5866,\n      \"exchangesFailed\": 5307,\n      \"meanProcessingTime\": 8762\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "64578002-6529-4ec1-bf26-e9bf8005bf28",
+          "name": "Apache ServiceMix Get Route",
+          "request": {
+            "name": "Apache ServiceMix Get Route",
+            "description": {
+              "content": "Get details of a specific Camel route.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routes",
+                ":routeId"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "routeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "857e8de5-bea0-4cc7-a1dc-16db2f285441",
+              "name": "Route details",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routes",
+                    ":routeId"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "routeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": \"string\",\n  \"description\": \"string\",\n  \"status\": \"Started\",\n  \"uptime\": \"string\",\n  \"exchangesTotal\": 8535,\n  \"exchangesFailed\": 8048,\n  \"meanProcessingTime\": 77\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "29ed7a50-1cac-49ad-b415-23fa3ed5c230",
+          "name": "Apache ServiceMix Start Route",
+          "request": {
+            "name": "Apache ServiceMix Start Route",
+            "description": {
+              "content": "Start a stopped Camel route.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routes",
+                ":routeId",
+                "start"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "routeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "965e6419-323e-45eb-8667-1f64a0373cb8",
+              "name": "Route started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routes",
+                    ":routeId",
+                    "start"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "routeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "930e814c-2a58-4aaf-afbd-ff7972ac33c8",
+          "name": "Apache ServiceMix Stop Route",
+          "request": {
+            "name": "Apache ServiceMix Stop Route",
+            "description": {
+              "content": "Stop a running Camel route.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "routes",
+                ":routeId",
+                "stop"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "routeId",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1ec2f7f0-551c-4447-98a6-0456a55b19c6",
+              "name": "Route stopped",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "routes",
+                    ":routeId",
+                    "stop"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "routeId",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://servicemix.example.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "78fbb23a-9012-42ae-93c8-58e6a7b44d5e",
+    "name": "Apache ServiceMix REST Bundles Routes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Apache ServiceMix is an open-source ESB (Enterprise Service Bus) and integration container built on Apache Karaf, Camel, CXF, and ActiveMQ. This API provides REST endpoints for managing bundles, routes, endpoints, and messaging.\n\nContact Support:\n Name: Apache ServiceMix",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,102 @@
+{
+  "item": [
+    {
+      "id": "7390bc6a-ba11-47f1-af6f-d5bd3bfa42f5",
+      "name": "Messaging",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d23b040b-3a28-4430-aa24-50194093627b",
+          "name": "Apache ServiceMix List Queues",
+          "request": {
+            "name": "Apache ServiceMix List Queues",
+            "description": {
+              "content": "List all ActiveMQ message queues in ServiceMix.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "queues"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "47dc1f14-5b72-47d8-939e-e107aadd4587",
+              "name": "List of queues",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "queues"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"queues\": [\n    {\n      \"name\": \"string\",\n      \"pendingQueueSize\": 1325,\n      \"consumerCount\": 6261,\n      \"enqueueCount\": 9972,\n      \"dequeueCount\": 44\n    },\n    {\n      \"name\": \"string\",\n      \"pendingQueueSize\": 6110,\n      \"consumerCount\": 1671,\n      \"enqueueCount\": 4576,\n      \"dequeueCount\": 431\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://servicemix.example.com/api",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "69ef5690-f0df-4368-a6a0-271c1041f220",
+    "name": "Apache ServiceMix REST Bundles Messaging API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Apache ServiceMix is an open-source ESB (Enterprise Service Bus) and integration container built on Apache Karaf, Camel, CXF, and ActiveMQ. This API provides REST endpoints for managing bundles, routes, endpoints, and messaging.\n\nContact Support:\n Name: Apache ServiceMix",
+      "type": "text/plain"
+    }
+  }
+}
