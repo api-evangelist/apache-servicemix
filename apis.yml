@@ -25,6 +25,14 @@ tags:
 - Messaging
 - OSGi
 - Apache
+- Open-Source
+tags_raw:
+- Enterprise Integration
+- ESB
+- Integration
+- Messaging
+- OSGi
+- Apache
 - Open Source
 created: '2026-03-16'
 modified: '2026-05-19'
@@ -48,7 +56,8 @@ apis:
   name: Apache ServiceMix Endpoints API
   description: The Endpoints API from Apache ServiceMix — 1 operation(s) for endpoints.
   humanURL: https://servicemix.apache.org/docs/7.x/
-  tags:
+  tags: []
+  tags_raw:
   - Endpoints
   properties:
   - type: OpenAPI
