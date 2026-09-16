@@ -1,7 +1,8 @@
 aid: apache-servicemix
 name: Apache ServiceMix
-description: Apache ServiceMix is a flexible, open-source integration container that unifies the features and functionality
-  of Apache ActiveMQ, Camel, CXF, and Karaf into a powerful runtime for building enterprise integration solutions.
+description: Apache ServiceMix is a flexible, open-source integration container that unifies the features
+  and functionality of Apache ActiveMQ, Camel, CXF, and Karaf into a powerful runtime for building enterprise
+  integration solutions.
 type: Index
 deliveryModel:
   model: unknown
@@ -46,7 +47,7 @@ tags_raw:
 - Apache
 - Open Source
 created: '2026-03-16'
-modified: '2026-05-19'
+modified: '2026-09-16'
 url: https://raw.githubusercontent.com/api-evangelist/apache-servicemix/refs/heads/main/apis.yml
 specificationVersion: '0.23'
 apis:
@@ -107,6 +108,8 @@ maintainers:
 - FN: Kin Lane
   email: info@apievangelist.com
 common:
+- type: Website
+  url: https://apache.org
 - type: AgenticAccess
   url: agentic-access/apache-servicemix-agentic-access.yml
 - type: VulnerabilityDisclosure
