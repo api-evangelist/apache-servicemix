@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Apache ServiceMix REST Bundles Messaging API
+  title: Apache ServiceMix REST Messaging API
   description: Apache ServiceMix is an open-source ESB (Enterprise Service Bus) and integration container built on Apache Karaf, Camel, CXF, and ActiveMQ. This API provides REST endpoints for managing bundles, routes, endpoints, and messaging.
   version: 7.0.0
   contact:
@@ -33,6 +33,14 @@ paths:
                 $ref: '#/components/schemas/QueueList'
 components:
   schemas:
+    QueueList:
+      type: object
+      description: List of ActiveMQ queues
+      properties:
+        queues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Queue'
     Queue:
       type: object
       description: ActiveMQ message queue
@@ -54,11 +62,3 @@ components:
           type: integer
           format: int64
           description: Total dequeued messages
-    QueueList:
-      type: object
-      description: List of ActiveMQ queues
-      properties:
-        queues:
-          type: array
-          items:
-            $ref: '#/components/schemas/Queue'

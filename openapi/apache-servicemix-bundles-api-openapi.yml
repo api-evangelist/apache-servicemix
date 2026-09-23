@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Apache ServiceMix REST Bundles API
   description: Apache ServiceMix is an open-source ESB (Enterprise Service Bus) and integration container built on Apache Karaf, Camel, CXF, and ActiveMQ. This API provides REST endpoints for managing bundles, routes, endpoints, and messaging.
@@ -84,6 +84,19 @@ paths:
                 $ref: '#/components/schemas/Bundle'
 components:
   schemas:
+    BundleStateRequest:
+      type: object
+      description: Request to update bundle state
+      properties:
+        state:
+          type: string
+          enum:
+          - start
+          - stop
+          - restart
+          - refresh
+          - update
+          description: Target state action
     Bundle:
       type: object
       description: OSGi bundle in ServiceMix
@@ -123,16 +136,3 @@ components:
             $ref: '#/components/schemas/Bundle'
         total:
           type: integer
-    BundleStateRequest:
-      type: object
-      description: Request to update bundle state
-      properties:
-        state:
-          type: string
-          enum:
-          - start
-          - stop
-          - restart
-          - refresh
-          - update
-          description: Target state action

@@ -1,6 +1,6 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
-  title: Apache ServiceMix REST Bundles Routes API
+  title: Apache ServiceMix REST Routes API
   description: Apache ServiceMix is an open-source ESB (Enterprise Service Bus) and integration container built on Apache Karaf, Camel, CXF, and ActiveMQ. This API provides REST endpoints for managing bundles, routes, endpoints, and messaging.
   version: 7.0.0
   contact:
@@ -94,14 +94,6 @@ paths:
           description: Route stopped
 components:
   schemas:
-    RouteList:
-      type: object
-      description: List of Camel routes
-      properties:
-        routes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Route'
     Route:
       type: object
       description: Apache Camel route
@@ -133,3 +125,11 @@ components:
         meanProcessingTime:
           type: integer
           description: Mean processing time in milliseconds
+    RouteList:
+      type: object
+      description: List of Camel routes
+      properties:
+        routes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Route'
