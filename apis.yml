@@ -37,7 +37,7 @@ tags:
 - Messaging
 - OSGi
 - Apache
-- Open-Source
+- Open Source
 tags_raw:
 - Enterprise Integration
 - ESB
@@ -46,6 +46,7 @@ tags_raw:
 - OSGi
 - Apache
 - Open Source
+- Open-Source
 created: '2026-03-16'
 modified: '2026-09-16'
 url: https://raw.githubusercontent.com/api-evangelist/apache-servicemix/refs/heads/main/apis.yml
