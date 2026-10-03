@@ -33,14 +33,6 @@ paths:
                 $ref: '#/components/schemas/QueueList'
 components:
   schemas:
-    QueueList:
-      type: object
-      description: List of ActiveMQ queues
-      properties:
-        queues:
-          type: array
-          items:
-            $ref: '#/components/schemas/Queue'
     Queue:
       type: object
       description: ActiveMQ message queue
@@ -62,3 +54,11 @@ components:
           type: integer
           format: int64
           description: Total dequeued messages
+    QueueList:
+      type: object
+      description: List of ActiveMQ queues
+      properties:
+        queues:
+          type: array
+          items:
+            $ref: '#/components/schemas/Queue'
