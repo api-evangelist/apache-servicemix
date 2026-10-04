@@ -33,6 +33,14 @@ paths:
                 $ref: '#/components/schemas/EndpointList'
 components:
   schemas:
+    EndpointList:
+      type: object
+      description: List of web service endpoints
+      properties:
+        endpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/Endpoint'
     Endpoint:
       type: object
       description: Web service endpoint
@@ -49,11 +57,3 @@ components:
         wsdl:
           type: string
           description: WSDL URL for SOAP endpoints
-    EndpointList:
-      type: object
-      description: List of web service endpoints
-      properties:
-        endpoints:
-          type: array
-          items:
-            $ref: '#/components/schemas/Endpoint'
