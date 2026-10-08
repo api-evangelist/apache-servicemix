@@ -109,6 +109,12 @@ maintainers:
 - FN: Kin Lane
   email: info@apievangelist.com
 common:
+- type: Plans
+  url: plans/apache-servicemix-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/apache-servicemix-rate-limits.yml
+- type: FinOps
+  url: finops/apache-servicemix-finops.yml
 - type: Website
   url: https://apache.org
 - type: AgenticAccess
