@@ -94,6 +94,14 @@ paths:
           description: Route stopped
 components:
   schemas:
+    RouteList:
+      type: object
+      description: List of Camel routes
+      properties:
+        routes:
+          type: array
+          items:
+            $ref: '#/components/schemas/Route'
     Route:
       type: object
       description: Apache Camel route
@@ -125,11 +133,3 @@ components:
         meanProcessingTime:
           type: integer
           description: Mean processing time in milliseconds
-    RouteList:
-      type: object
-      description: List of Camel routes
-      properties:
-        routes:
-          type: array
-          items:
-            $ref: '#/components/schemas/Route'

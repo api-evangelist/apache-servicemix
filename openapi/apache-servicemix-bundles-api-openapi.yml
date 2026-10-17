@@ -84,6 +84,19 @@ paths:
                 $ref: '#/components/schemas/Bundle'
 components:
   schemas:
+    BundleStateRequest:
+      type: object
+      description: Request to update bundle state
+      properties:
+        state:
+          type: string
+          enum:
+          - start
+          - stop
+          - restart
+          - refresh
+          - update
+          description: Target state action
     Bundle:
       type: object
       description: OSGi bundle in ServiceMix
@@ -123,16 +136,3 @@ components:
             $ref: '#/components/schemas/Bundle'
         total:
           type: integer
-    BundleStateRequest:
-      type: object
-      description: Request to update bundle state
-      properties:
-        state:
-          type: string
-          enum:
-          - start
-          - stop
-          - restart
-          - refresh
-          - update
-          description: Target state action
