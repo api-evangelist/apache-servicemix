@@ -1,30 +1,19 @@
 {
   "provider": "apache-servicemix",
   "sources": [
-    "_original/apache-servicemix-rest-api.yaml"
+    "_original/apache-servicemix-openapi.json"
   ],
   "outputs": [
-    "apache-servicemix-bundles-api-openapi.yml",
-    "apache-servicemix-endpoints-api-openapi.yml",
-    "apache-servicemix-messaging-api-openapi.yml",
-    "apache-servicemix-routes-api-openapi.yml"
+    "apache-servicemix-queues-api-openapi.yml",
+    "apache-servicemix-status-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
     "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
-    "apache-servicemix-rest-api.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
-    "apache-servicemix-rest-api.yaml: declared missing tag: Bundles",
-    "apache-servicemix-rest-api.yaml: declared missing tag: Endpoints",
-    "apache-servicemix-rest-api.yaml: declared missing tag: Messaging",
-    "apache-servicemix-rest-api.yaml: declared missing tag: Routes",
-    "apis.yml register: already-registered"
+    "apache-servicemix-openapi.json: upgraded swagger 2.0 -> OpenAPI 3.2.0",
+    "apis.yml register: written (+2 apis, 2 total)"
   ],
-  "skipped": [
-    "apache-servicemix-bundles-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apache-servicemix-endpoints-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apache-servicemix-messaging-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "apache-servicemix-routes-api-openapi.yml: previously refined output, superseded by openapi/_original/"
-  ]
+  "skipped": []
 }
